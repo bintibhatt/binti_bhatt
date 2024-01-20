@@ -1,4 +1,6 @@
 import React from "react";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 
 export default function ExperiencePage() {
   const experiences = [
@@ -41,55 +43,66 @@ export default function ExperiencePage() {
   ];
 
   return (
-    <div className="flex flex-col md:flex-row justify-between h-auto md:h-full bg-gray-600 bg-opacity-60 p-6 md:p-16 lg:p-10 pb-1 md:pb-1 lg:pb-1 rounded-b-3xl">
-      <div className="mb-8 md:mb-0">
-        <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-8 text-center md:text-left">
-          My Experiences
-        </h1>
-        <ol className="relative border-s border-gray-200 dark:border-gray-300">
-          {experiences.map((experience) => (
-            <li key={experience.title} className="mb-8 md:mb-10 ms-4">
-              <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-400 dark:bg-gray-900"></div>
-              <time className="mb-1 text-sm md:text-md font-normal leading-none text-gray-300 dark:text-gray-300">
-                {experience.date}
-              </time>
-              <div className="flex items-center mb-2 text-base md:text-lg font-semibold leading-none text-gray-200 dark:text-gray-300">
-                <h3 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white">
-                  {experience.title} -{" "}
-                </h3>
-                <p className="text-sm md:text-md font-normal text-gray-500 dark:text-gray-300 mt-1 ml-2">
-                  {experience.company}
-                </p>
-              </div>
-              <p className="text-sm md:text-base font-normal text-gray-500 dark:text-gray-300">
-                {experience.skills}
-              </p>
-            </li>
-          ))}
-        </ol>
-      </div>
+    <div className="bg-[url('./images/hero-bg.jpg')] bg-cover">
+      <section className="bg-gray-900 h-screen py-10 sm:py-1 px-4 md:px-10 md:py-4 lg:px-8 lg:py-10 xl:py-20 bg-opacity-70">
+        <div className="container mx-auto mt-10 lg:mt-2 md:mt-4 sm:mt-8 border-gray-400 border-2 rounded-3xl">
+          <Navbar />
+          <div className="flex flex-col md:flex-row justify-between h-auto md:h-full bg-gray-600 bg-opacity-60 p-6 md:p-16 lg:p-10 pb-1 md:pb-1 lg:pb-1 rounded-b-3xl">
+            <div className="mb-8 md:mb-0">
+              <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-8 text-center md:text-left text-white">
+                My Experiences
+              </h1>
+              <ol className="relative border-s border-gray-200 dark:border-gray-300">
+                {experiences.map((experience) => (
+                  <li key={experience.title} className="mb-8 md:mb-10 ms-4">
+                    <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-400 dark:bg-gray-900"></div>
+                    <time className="mb-1 text-sm md:text-md font-normal leading-none text-gray-300 dark:text-gray-300">
+                      {experience.date}
+                    </time>
+                    <div className="flex items-center mb-2 text-base md:text-lg font-semibold leading-none text-gray-200 dark:text-gray-300">
+                      <h3 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white">
+                        {experience.title} -{" "}
+                      </h3>
+                      <p className="text-sm md:text-md font-normal text-gray-500 dark:text-gray-300 mt-1 ml-2">
+                        {experience.company}
+                      </p>
+                    </div>
+                    <p className="text-sm md:text-base font-normal text-gray-500 dark:text-gray-300">
+                      {experience.skills}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+            </div>
 
-      <div>
-        <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-8 text-center md:text-left">
-          My Education
-        </h1>
-        <ol className="relative border-s border-gray-200 dark:border-gray-300">
-          {educations.map((education) => (
-            <li key={education.institution} className="mb-8 md:mb-10 ms-4">
-              <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-400 dark:bg-gray-900"></div>
-              <time className="mb-1 text-sm md:text-md font-normal leading-none text-gray-300 dark:text-gray-300">
-                {education.date}
-              </time>
-              <h3 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white">
-                {education.degree}
-              </h3>
-              <p className="text-sm md:text-md font-normal text-gray-500 dark:text-gray-300">
-                {education.institution}
-              </p>
-            </li>
-          ))}
-        </ol>
-      </div>
+            <div>
+              <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-8 text-center md:text-left text-white">
+                My Education
+              </h1>
+              <ol className="relative border-s border-gray-200 dark:border-gray-300">
+                {educations.map((education) => (
+                  <li
+                    key={education.institution}
+                    className="mb-8 md:mb-10 ms-4"
+                  >
+                    <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-400 dark:bg-gray-900"></div>
+                    <time className="mb-1 text-sm md:text-md font-normal leading-none text-gray-300 dark:text-gray-300">
+                      {education.date}
+                    </time>
+                    <h3 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white">
+                      {education.degree}
+                    </h3>
+                    <p className="text-sm md:text-md font-normal text-gray-500 dark:text-gray-300">
+                      {education.institution}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+          <Footer />
+        </div>
+      </section>
     </div>
   );
 }

@@ -1,14 +1,14 @@
-"use client";
 import { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
-  const pathname = usePathname();
-  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const url = window.location.href;
+  const params = url.split("/").slice(3).join("/");
+  const pathname = "/" + params;
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
-    setMobileMenuOpen(!isMobileMenuOpen);
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   const isActive = (href) => pathname === href;
@@ -31,7 +31,7 @@ const Navbar = () => {
       >
         <ul className="flex md:space-x-8 md:items-center flex-col md:flex-row p-3">
           <li className={`hover:text-gray-300`}>
-            <Link href="/">Home</Link>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li
             className={
@@ -40,7 +40,7 @@ const Navbar = () => {
                 : "hover:text-gray-300"
             }
           >
-            <Link href="/about">About</Link>
+            <NavLink to="/about">About</NavLink>
           </li>
           <li
             className={
@@ -49,7 +49,7 @@ const Navbar = () => {
                 : "hover:text-gray-300"
             }
           >
-            <Link href="/about/projects">Projects</Link>
+            <NavLink to="/about/projects">Projects</NavLink>
           </li>
           <li
             className={
@@ -58,7 +58,7 @@ const Navbar = () => {
                 : "hover:text-gray-300"
             }
           >
-            <Link href="/about/achievements">Achievements</Link>
+            <NavLink to="/about/achievements">Achievements</NavLink>
           </li>
           <li
             className={
@@ -67,7 +67,7 @@ const Navbar = () => {
                 : "hover:text-gray-300"
             }
           >
-            <Link href="/about/experience">Learning</Link>
+            <NavLink to="/about/experience">Learning</NavLink>
           </li>
           <li
             className={
@@ -76,7 +76,7 @@ const Navbar = () => {
                 : "hover:text-gray-300"
             }
           >
-            <Link href="/about/contact">Contact</Link>
+            <NavLink to="/about/contact">Contact</NavLink>
           </li>
         </ul>
       </div>

@@ -1,5 +1,7 @@
 import React from "react";
-import Link from "next/link";
+import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 export default function ProjectsPage() {
   const projects = [
@@ -40,47 +42,55 @@ export default function ProjectsPage() {
     },
   ];
   return (
-    <div className="flex flex-col sm:flex-row h-full bg-gray-600 bg-opacity-60 p-4 sm:p-10 rounded-b-3xl md:p-5 lg:p-10 xl:p-20">
-      <div className="container">
-        <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-8 ">
-          My Projects
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="max-w-sm rounded-lg overflow-hidden shadow-md bg-gray-800 hover:bg-gray-900"
-            >
-              <div className="p-4">
-                <div className="flex items-center h-16 border-b-2">
-                  <h3 className="w-full sm:w-56 text-lg font-bold text-white tracking-tight mb-2 sm:mb-0 md:text-md">
-                    {project.title}
-                  </h3>
-                  <Link
-                    href={project.projectLink}
-                    target="_blank"
-                    className="text-white border-spacing-2 border-2 border-white rounded-full px-2 py-1 text-sm font-semibold hover:bg-gray-300 hover:text-black"
+    <div className="bg-[url('./images/hero-bg.jpg')] bg-cover">
+      <section className="bg-gray-900 h-screen py-10 sm:py-1 px-4 md:px-10 md:py-4 lg:px-8 lg:py-10 xl:py-20 bg-opacity-70">
+        <div className="container mx-auto mt-10 lg:mt-2 md:mt-4 sm:mt-8 border-gray-400 border-2 rounded-3xl">
+          <Navbar />
+          <div className="flex flex-col sm:flex-row h-full bg-gray-600 bg-opacity-60 p-4 sm:p-10 rounded-b-3xl md:p-5 lg:p-10 xl:p-20">
+            <div className="container">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-8 text-white">
+                My Projects
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {projects.map((project) => (
+                  <div
+                    key={project.id}
+                    className="max-w-sm rounded-lg overflow-hidden shadow-md bg-gray-800 hover:bg-gray-900"
                   >
-                    View &rarr;
-                  </Link>
-                </div>
-                <p className="text-gray-400 md:text-sm">
-                  {project.description}
-                </p>
-                <div className="flex items-center justify-between mt-4">
-                  <div className="flex flex-wrap">
-                    {project.technologies.split(", ").map((tech) => (
-                      <li key={tech} className="text-white px-2 min-w-32">
-                        {tech}
-                      </li>
-                    ))}
+                    <div className="p-4">
+                      <div className="flex items-center h-16 border-b-2">
+                        <h3 className="w-full sm:w-56 text-lg font-bold text-white tracking-tight mb-2 sm:mb-0 md:text-md">
+                          {project.title}
+                        </h3>
+                        <Link
+                          href={project.projectLink}
+                          target="_blank"
+                          className="text-white border-spacing-2 border-2 border-white rounded-full px-2 py-1 text-sm font-semibold hover:bg-gray-300 hover:text-black"
+                        >
+                          View &rarr;
+                        </Link>
+                      </div>
+                      <p className="text-gray-400 md:text-sm">
+                        {project.description}
+                      </p>
+                      <div className="flex items-center justify-between mt-4">
+                        <div className="flex flex-wrap">
+                          {project.technologies.split(", ").map((tech) => (
+                            <li key={tech} className="text-white px-2 min-w-32">
+                              {tech}
+                            </li>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
-          ))}
+          </div>
+          <Footer />
         </div>
-      </div>
+      </section>
     </div>
   );
 }
